@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Authentication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+
+    <section class="section">
+        <div class="columns">
+            <div class="column">
+                <h4 class="title"><em>Sign up</em></h4>
+                <div class="box">
+                    <form action="{% url 'books:createuser'%}" method="post">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label class="label">First name:</label>
+                            <div class="control">
+                              <input class="input" type="text" name="name" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Last name:</label>
+                            <div class="control">
+                              <input class="input" type="text" name="lastname" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Username:</label>
+                            <div class="control">
+                              <input class="input" type="text" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password:</label>
+                            <div class="control">
+                              <input class="input" name="password" type="password" placeholder="********">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Email:</label>
+                            <div class="control">
+                              <input class="input" type="text" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <input class="button is-focused is-success is-outlined is-light" type="submit" value="Sign up">
+                    </form>
+                </div>
+            </div>
+            <div class="column">
+                <h4 class="title"><em>Login</em></h4>
+                <div class="box">
+                    <form action="{% url 'books:loginuser'%}" method="post">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label class="label">Username:</label>
+                            <div class="control">
+                              <input class="input" type="text" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password:</label>
+                            <div class="control">
+                              <input class="input" name="password" type="password" placeholder="********">
+                            </div>
+                          </div>
+                        <input class="button is-focused is-success is-outlined" type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>

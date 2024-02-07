@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    {% include 'books/topnav.html' %}
+    <p>
+    <h4></h4>
+    <h2>{{book.name}}</h2>
+    {% if book %}
+        {% if request.user in book.likers.all %}
+            <a href="{% url 'books:like' book.id %}">Unlike</a> {{book.likers.all | length}}
+        {% else %}
+            <a href="{% url 'books:like' book.id %}">Like</a> {{book.likers.all | length}}
+        {%endif%}
+    {% endif %}
+
+    {%for author in book.authors.all %}
+        <small><a href="{% url 'books:author' author.id %}">{{author.name}}</a>,</small>
+    {%endfor%}
+
+    <h3>Genres</h3>
+    {%for genre in book.genres.all %}
+    <p>{{genre.genre}}</p>
+    {%endfor%}
+
+-------------------------------------
+
+    <h3>Reviews</h3>
+    {%for review in book.review_set.all %}
+        <p>{{review.review_text}}</p>
+    {%endfor%}
+    </p>
+
+</body>

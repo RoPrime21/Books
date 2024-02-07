@@ -1,0 +1,55 @@
+<nav class="navbar has-background-primary is-transparent pb-5" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{% url 'books:home' %}">
+        <h1 class="title">LoveBooks</h1>
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item">
+        <a class="button is-danger" href="{% url 'books:review_page' %}">Review a book</a>
+        </div>
+      </div>
+
+
+
+        <form action="{% url 'books:search' %}" method="GET">
+          <div class="navbar-item">
+            <div class="field has-addons">
+              <div class="control">
+                <input name="searchbar" class="input" type="text" placeholder="Find books or genres">
+              </div>
+              <div class="control">
+                <input class="button is-link" type="submit" value="Search">
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+          <div class="content">
+            {%if request.user.username %}
+            <em><strong>Welcome, {{request.user.username}}</strong></em> 
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" href="{% url 'books:logout_view' %}">Logout</a></p>
+            {% else %}
+            <a class="button is-primary" href="{% url 'books:homeauthentication' %}">Login</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

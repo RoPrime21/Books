@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    {% include 'books/topnav.html' %}
+    <img src="http://books.google.com/books/content?id=aF_aIcYxL9cC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api" alt="" srcset="">
+    <section class="section">
+
+        <h3 class="title"><em>Post a book</em></h3>
+        <form action="{% url 'books:addbook' %}" method="post" class="box">
+            {% csrf_token %}
+            <label class="label">Book name:</label>
+            <div class="control">
+                <p><input class="input is-rounded" type="text" name="book_name" placeholder="book name" /></p>
+            </div>
+            <label class="label">Author name/names:</label>
+            <div class="control">
+                <p><input class="input is-rounded" type="text" name="authors_name" placeholder="authors name" /></p>
+            </div>
+            <label class="label">Review:</label>
+            <div class="control">
+                <p><textarea class="input is-rounded" name="review" cols="50" rows="10"
+                        placeholder="Write your review"></textarea></p>
+            </div>
+            <label class="label">ISBN</label>
+            <div class="control">
+                <p><input class="input is-rounded" type="text" name="ISBN" placeholder="ISBN number" /></p>
+            </div>
+            <p><label class="label">Choose a genre:</label></p>
+            <select name="genre" id="genre" multiple>
+                {% for genre in genres %}
+                <option value="{{genre.id}}">{{genre.genre}}</option>
+                {% endfor %}
+            </select>
+
+            <p>
+                <input class="button is-focused is-success is-outlined" type="submit" value="Post book">
+            </p>
+
+        </form>
+    </section>
+
+</body>

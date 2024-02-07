@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Authentication</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
+
+<body>
+    {% include 'books/topnav.html' %}
+
+    <section class="section">
+        <h2 class="title">Books by {{author.name}}</h2>
+        {% include 'books/books.html' %}
+    </section>
+</body>

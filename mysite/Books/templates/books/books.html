@@ -1,0 +1,8 @@
+{%for book in books %}
+<p><a class="" href="{% url 'books:book' book.id %}">{{book.name}}</a></p>
+<small>
+    {% for author in book.authors.all %}
+        <a href="{% url 'books:author' author.id %}">{{author.name}}</a>,
+    {% endfor %}
+</small>
+{%endfor%}
