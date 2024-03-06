@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^6+4#ck$l!+e)n^tf32g+2iyjp3d-vt6&bjc1f6253&5c-7cgp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Roprime21.pythonanywhere.com', 'localhost']
 
 
 # Application definition
