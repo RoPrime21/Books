@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Twitter.apps.TwitterConfig',
-    'polls.apps.PollsConfig',
+    # 'Twitter.apps.TwitterConfig',
+    # 'polls.apps.PollsConfig',
     'Books.apps.BooksConfig',
 ]
 
