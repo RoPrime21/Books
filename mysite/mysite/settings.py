@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['Roprime21.pythonanywhere.com', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
